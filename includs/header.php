@@ -1,4 +1,13 @@
-<?php include("includs/functions.php"); ?>
+<?php include("includs/functions.php");
+
+//$statement = $db->query("SELECT * FROM `users`;");
+//$users = $statement->fetchAll();
+//
+$users_count = db_query("SELECT COUNT(id) FROM `users`;")->fetchColumn();
+$links_count = db_query("SELECT COUNT(id) FROM `links`;")->fetchColumn();
+$views_count = db_query("SELECT SUM(`views`) FROM `links`;")->fetchColumn();
+
+?>
 <!doctype html>
 <html lang="ru">
 
@@ -34,5 +43,8 @@
       </div>
     </nav>
   </header>
-  <?php //var_dump($_SERVER); 
+  <?php
+  //var_dump($_SERVER); 
+  //var_dump($users);
+  //var_dump($users_count);
   ?>
